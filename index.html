@@ -12,7 +12,7 @@
       content="juego, adivinanza, numeros, mayor, menor, azar, suerte"
     />
     <meta name="author" content="Juan Diego Quintana" />
-    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -22,29 +22,56 @@
     <link rel="stylesheet" href="./css/style.css" />
     <title>Rolling Game</title>
   </head>
-  
+
   <body>
     <header>
-      <nav class="navbar bg-primary shadow ">
+      <nav class="navbar bg-primary shadow">
         <div class="container d-flex justify-content-center">
           <img
             src="./assets/logo.png"
             alt="Logo"
             class="d-inline-block align-text-top img-fluid widthLogo"
           />
-          <a class="navbar-brand ps-2 text-uppercase fw-bold text-white" href="./index.html"> Rolling Game</a>
+          <a
+            class="navbar-brand ps-2 text-uppercase fw-bold text-white"
+            href="./index.html"
+          >
+            Rolling Game</a
+          >
         </div>
       </nav>
 
-      <div class="bg-black ">
-        <p class="text-white py-2 text-center fs-3">¡Bienvenidos a Rolling Game!</p>
+      <div class="bg-black">
+        <p class="text-white py-2 text-center">
+          ¡Bienvenidos a Rolling Game!
+        </p>
       </div>
     </header>
 
-    <main></main>
+    <main class="container">
+      <section id="firstSection">
+        <div class="d-flex justify-content-center buttonAlign">
+          <button
+            class="btn btn-danger p-3 text-uppercase fw-bold shadow wobble-hor-bottom btnColor"
+            id="buttonReady"
+            onclick="startGame()"
+          >
+            ¡Comenzar el Juego!
+          </button>
+        </div>
+      </section>
+    </main>
 
     <footer class="bg-black p-3">
-        <p class="text-center text-white text-uppercase fw-bold">Todos los Derechos Reservados &copy; 2023 - Creador por <a href="https://www.linkedin.com/in/juan-diego-quintana-b5a186211/" target="_blank" class="link-primary">Juan Diego Quintana</a></p>
+      <p class="text-center text-white text-uppercase fw-bold">
+        Todos los Derechos Reservados &copy; 2023 - Creador por
+        <a
+          href="https://www.linkedin.com/in/juan-diego-quintana-b5a186211/"
+          target="_blank"
+          class="link-primary"
+          >Juan Diego Quintana</a
+        >
+      </p>
     </footer>
 
     <script
