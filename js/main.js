@@ -6,7 +6,7 @@ const startGame = () => {
   if (buttonStartGame.innerHTML.includes("¡Comenzar el Juego!")) {
     buttonStartGame.className = "d-none";
     const createDiv = document.createElement("div");
-    createDiv.className = "d-flex flex-column justify-content-center"
+    createDiv.className = "d-flex flex-column justify-content-center";
     createDiv.innerHTML = `
         <p class="text-center fw-bold text-uppercase h1">Introduce un Numero</p>
 
@@ -24,70 +24,78 @@ const startGame = () => {
         </div>
 
     `;
-    firstSection.appendChild(createDiv)
-
-
+    firstSection.appendChild(createDiv);
 
     const sendNumber = () => {
-        const numberUser = parseInt(document.querySelector("#numberPerson").value);
+      const numberUser = parseInt(
+        document.querySelector("#numberPerson").value
+      );
 
-        if(numberUser === magicNumber) {
-            const youWin = document.createElement("div");
-            youWin.className = "d-flex flex-column justify-content-center"
-            youWin.innerHTML = `        
+      if (numberUser === magicNumber) {
+        const youWin = document.createElement("div");
+        youWin.className = "d-flex flex-column justify-content-center";
+        youWin.innerHTML = `        
             <div class="d-flex flex-column justify-content-center">
                 <p class="display-3 text-center fw-bold">¡Felicidades has Ganado!</p>
                 <a class="btn btn-success mt-2 text-uppercase lead" href="../index.html">Jugar de Nuevo</a>
             </div>
         
             `;
-            firstSection.appendChild(youWin)
-            firstSection.removeChild(createDiv)
-        }else if(numberUser >= 100) {
-            const alert = document.createElement("div");
-            alert.className = "d-flex flex-column justify-content-center"
-            alert.innerHTML = `        
+        firstSection.appendChild(youWin);
+        firstSection.removeChild(createDiv);
+      } else if (numberUser > 100) {
+        const alert = document.createElement("div");
+        alert.className = "d-flex flex-column justify-content-center";
+        alert.innerHTML = `        
             <div class="d-flex flex-column justify-content-center">
                 <p class="text-white text-center fw-bold bg-danger rounded mt-2 shadow ">Introduce un número del 1 al 100</p>
             </div>
             `;
-            firstSection.appendChild(alert)
-            setTimeout(() => {
-                firstSection.removeChild(alert)
-            }, 1500);
-
-        }else if (numberUser < magicNumber) {
-            const continueForWin = document.createElement("div");
-            continueForWin.className = "d-flex flex-column justify-content-center"
-            continueForWin.innerHTML = `        
+        firstSection.appendChild(alert);
+        setTimeout(() => {
+          firstSection.removeChild(alert);
+        }, 1500);
+      } else if (numberUser <= 0) {
+        const negativeNumber = document.createElement("div");
+        negativeNumber.className = "d-flex flex-column justify-content-center";
+        negativeNumber.innerHTML = `        
+            <div class="d-flex flex-column justify-content-center">
+                <p class="text-white text-center fw-bold bg-danger rounded mt-2 shadow ">No se permiten números negativos</p>
+            </div>
+            `;
+        firstSection.appendChild(negativeNumber);
+        setTimeout(() => {
+          firstSection.removeChild(negativeNumber);
+        }, 1500);
+      } else if (numberUser < magicNumber) {
+        const continueForWin = document.createElement("div");
+        continueForWin.className = "d-flex flex-column justify-content-center";
+        continueForWin.innerHTML = `        
             <div class="d-flex flex-column justify-content-center">
                 <p class="text-white text-center fw-bold bg-warning rounded mt-2 shadow ">El número es bajo. Continua intentando.</p>
             </div>
         
             `;
-            firstSection.appendChild(continueForWin)
-            setTimeout(() => {
-                firstSection.removeChild(continueForWin)
-            }, 1500);
-        } else {
-            const continueForWin = document.createElement("div");
-            continueForWin.className = "d-flex flex-column justify-content-center"
-            continueForWin.innerHTML = `        
+        firstSection.appendChild(continueForWin);
+        setTimeout(() => {
+          firstSection.removeChild(continueForWin);
+        }, 1500);
+      } else {
+        const continueForWin = document.createElement("div");
+        continueForWin.className = "d-flex flex-column justify-content-center";
+        continueForWin.innerHTML = `        
             <div class="d-flex flex-column justify-content-center">
                 <p class="text-white text-center fw-bold bg-danger rounded mt-2 shadow ">El número es alto. Continua intentando.</p>
             </div>
         
             `;
-            firstSection.appendChild(continueForWin)
-            setTimeout(() => {
-                firstSection.removeChild(continueForWin)
-            }, 1500);
-        }
-    }
-    const playGame = document.querySelector("#sendNumber")
-    playGame.addEventListener("click", sendNumber)
-  } 
+        firstSection.appendChild(continueForWin);
+        setTimeout(() => {
+          firstSection.removeChild(continueForWin);
+        }, 1500);
+      }
+    };
+    const playGame = document.querySelector("#sendNumber");
+    playGame.addEventListener("click", sendNumber);
+  }
 };
-
-
-
